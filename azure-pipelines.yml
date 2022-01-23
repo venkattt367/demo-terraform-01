@@ -1,0 +1,35 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+pool:
+  name: myagent
+
+steps:
+- script: echo Hello, world!
+  displayName: 'Run a one-line script'
+
+- script: |
+    echo Add other tasks to build, test, and deploy your project.
+    echo See https://aka.ms/yaml
+  displayName: 'Run a multi-line script'
+  inputs:
+    TemplatePath: 'venkattt367 / demo-terraform-01/main.tf'
+    Arguments: 'init'
+    InstallTerraform: true
+    UseAzureSub: true
+    ConnectedServiceNameSelector: 'ConnectedServiceNameARM'
+    ConnectedServiceNameARM: 'Azure subscription 1(8387394d-454a-4a31-b9cf-b43edde3669e)'
+    ManageState: false
+  inputs:
+    TemplatePath: 'venkattt367 / demo-terraform-01/main.tf'
+    Arguments: 'apply'
+    InstallTerraform: true
+    UseAzureSub: true
+    ConnectedServiceNameSelector: 'ConnectedServiceNameARM'
+    ConnectedServiceNameARM: 'Azure subscription 1(8387394d-454a-4a31-b9cf-b43edde3669e)'
+    ManageState: false
